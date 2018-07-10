@@ -7,27 +7,27 @@
 
 在工程的Podfile文件里面添加以下代码：
 ```
-  pod 'COSPaySDK'
+  pod 'DCPaySDK'
 ```
   保存并执行pod install,然后用后缀为.xcworkspace的文件打开工程。
 
 #### 选择二：手动导入
 
-把文件COSPaySDK.framework拷贝到项目文件夹下，并导入到项目工程中。
+把文件DCPaySDK.framework拷贝到项目文件夹下，并导入到项目工程中。
 在Build Phases选项卡的Link Binary With Libraries中，增加以下依赖：
-![avatar](https://raw.githubusercontent.com/cqmbr/COSPaySDK-iOS/master/docs/images/link_librarys.png)
+![avatar](https://raw.githubusercontent.com/cqmbr/DCPaySDK-iOS/master/docs/images/link_librarys.png)
 
 
 ### 配置白名单
-sdk会查询cospay是否安装，因此需要在info.plist文件中配置白名单。
-![avatar](https://raw.githubusercontent.com/cqmbr/COSPaySDK-iOS/master/docs/images/add_scheme.png)
+sdk会查询dcpay是否安装，因此需要在info.plist文件中配置白名单。
+![avatar](https://raw.githubusercontent.com/cqmbr/DCPaySDK-iOS/master/docs/images/add_scheme.png)
 
 ### 配置scheme
 点击项目名称，点击“Info”选项卡，在“URL Types”选项中，点击“+”，在“URL Schemes”中输入“paysdkdemo”。
-![avatar](https://raw.githubusercontent.com/cqmbr/COSPaySDK-iOS/master/docs/images/set_scheme.jpg)
+![avatar](https://raw.githubusercontent.com/cqmbr/DCPaySDK-iOS/master/docs/images/set_scheme.jpg)
 
 注意：这里的URL Schemes中输入的“paysdkdemo”，为测试demo，参考demo文件“ViewController.m”的NSString *appScheme = @"paysdkdemo"。
-实际商户的app中要填写独立的scheme，建议跟商户的app有一定的标示度，要做到和其他的商户app不重复，否则可能会导致cospay返回的结果无法正确跳回商户app。
+实际商户的app中要填写独立的scheme，建议跟商户的app有一定的标示度，要做到和其他的商户app不重复，否则可能会导致dcpay返回的结果无法正确跳回商户app。
 
 ## sdk使用
 ### 组装支付请求
@@ -53,7 +53,7 @@ sdk会查询cospay是否安装，因此需要在info.plist文件中配置白名�
     NSString *appScheme = @"paysdkdemo";
     
     //调用sdk开始支付
-    [[COSPaySDK defaultService] payOrder:orderInfo fromScheme:appScheme];
+    [[DCPaySDK defaultService] payOrder:orderInfo fromScheme:appScheme];
 ```
 
 详细可参见Demo中示例文件
@@ -61,10 +61,10 @@ sdk会查询cospay是否安装，因此需要在info.plist文件中配置白名�
 - PaySDKDemo\ViewController.m
 
 ### 支付回调处理
-配置COSPay客户端返回url处理方法（外部存在COSPay钱包，COSPay钱包将处理结果通过url返回。）</br> 
+配置COSPay客户端返回url处理方法（外部存在DCPay，DCPay将处理结果通过url返回。）</br> 
 如示例PaySDKDemo\AppDelegate.m文件中，增加引用代码：
 ```objc
-#import <COSPaySDK/COSPaySDK.h>
+#import <DCPaySDK/DCPaySDK.h>
 ```
 在@implementation AppDelegate中以下代码中的NSLog改为实际业务处理代码：
 ```objc
@@ -72,7 +72,7 @@ sdk会查询cospay是否安装，因此需要在info.plist文件中配置白名�
     
     if ([url.host isEqualToString:@"cospay"]) {
         // 支付跳转COSPay钱包进行支付，处理支付结果
-        [[COSPaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+        [[DCPaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
             NSLog(@"result = %@",resultDic);
         }];
     }
@@ -85,7 +85,7 @@ sdk会查询cospay是否安装，因此需要在info.plist文件中配置白名�
     
     if ([url.host isEqualToString:@"cospay"]) {
         // 支付跳转COSPay钱包进行支付，处理支付结果
-        [[COSPaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+        [[DCPaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
             NSLog(@"result = %@",resultDic);
         }];
     }
@@ -95,7 +95,7 @@ sdk会查询cospay是否安装，因此需要在info.plist文件中配置白名�
 
 ## Demo
 ### Demo地址：
-https://github.com/cqmbr/COSPaySDK-iOS.git </br>
+https://github.com/cqmbr/DCPaySDK-iOS.git </br>
 
 ### Demo使用说明：
 demo代码位于Sample目录，在Sample目录执行pod update，然后用后缀为.xcworkspace的文件打开工程运行即可。
@@ -139,9 +139,9 @@ orderStr示例如下：
 ### 处理客户端返回url
 ```objc
 /**
- *  处理COSPay app支付跳回商户app携带的支付结果Url
+ *  处理Pay app支付跳回商户app携带的支付结果Url
  *
- *  @param resultUrl        COSPay客户端回传的url
+ *  @param resultUrl        Pay客户端回传的url
  *  @param completionBlock  处理完支付回调请求，会通过该completionBlock返回支付结果
  */
 - (void)processOrderWithPaymentResult:(NSURL *)resultUrl
