@@ -31,8 +31,8 @@
 	<string>1</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-		<string>cospay</string>
 		<string>dcpay</string>
+		<string>cospay</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

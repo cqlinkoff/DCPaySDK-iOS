@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import <DCPaySDK/DCPaySDK.h>
-//#import <DCPaySDK/DCPaySDK.h>
 
 @interface AppDelegate ()
 
@@ -51,11 +50,11 @@
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     
-    if ([url.host isEqualToString:@"cospay"]) {
+    if ([url.host isEqualToString:@"dcpay"]) {
         // 支付跳转COSPay钱包进行支付，处理支付结果
         [[DCPaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
             NSLog(@"result = %@",resultDic);
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"COSPayResult" object:resultDic];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"PayResult" object:resultDic];
         }];
     }
     return YES;
@@ -64,11 +63,11 @@
 // NOTE: 9.0以后使用新API接口
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options {
     
-    if ([url.host isEqualToString:@"cospay"]) {
+    if ([url.host isEqualToString:@"dcpay"]) {
         // 支付跳转COSPay钱包进行支付，处理支付结果
         [[DCPaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
             NSLog(@"result = %@",resultDic);
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"COSPayResult" object:resultDic];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"PayResult" object:resultDic];
         }];
     }
     return YES;

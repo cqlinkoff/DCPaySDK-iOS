@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #import <DCPaySDK/DCPaySDK.h>
-//#import <DCPaySDK/DCPaySDK.h>
 #import "DCPAPISigner.h"
 #import <YYCategories.h>
 #import <MBProgressHUD+BWMExtension/MBProgressHUD+BWMExtension.h>
@@ -21,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handlePayResult:) name:@"COSPayResult" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handlePayResult:) name:@"PayResult" object:nil];
 }
 
 -(void)dealloc {
