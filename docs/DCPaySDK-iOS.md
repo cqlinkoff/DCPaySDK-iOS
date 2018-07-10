@@ -61,7 +61,7 @@ sdk会查询dcpay是否安装，因此需要在info.plist文件中配置白名�
 - PaySDKDemo\ViewController.m
 
 ### 支付回调处理
-配置COSPay客户端返回url处理方法（外部存在DCPay，DCPay将处理结果通过url返回。）</br> 
+配置DCPay客户端返回url处理方法（外部存在DCPay，DCPay将处理结果通过url返回。）</br> 
 如示例PaySDKDemo\AppDelegate.m文件中，增加引用代码：
 ```objc
 #import <DCPaySDK/DCPaySDK.h>
@@ -70,8 +70,8 @@ sdk会查询dcpay是否安装，因此需要在info.plist文件中配置白名�
 ```objc
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     
-    if ([url.host isEqualToString:@"cospay"]) {
-        // 支付跳转COSPay钱包进行支付，处理支付结果
+    if ([url.host isEqualToString:@"dcspay"]) {
+        // 支付跳转DCPay钱包进行支付，处理支付结果
         [[DCPaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
             NSLog(@"result = %@",resultDic);
         }];
@@ -83,8 +83,8 @@ sdk会查询dcpay是否安装，因此需要在info.plist文件中配置白名�
 // NOTE: 9.0以后使用新API接口
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options {
     
-    if ([url.host isEqualToString:@"cospay"]) {
-        // 支付跳转COSPay钱包进行支付，处理支付结果
+    if ([url.host isEqualToString:@"dcpay"]) {
+        // 支付跳转DCPay钱包进行支付，处理支付结果
         [[DCPaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
             NSLog(@"result = %@",resultDic);
         }];
