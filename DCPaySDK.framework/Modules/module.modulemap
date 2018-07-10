@@ -1,0 +1,6 @@
+framework module DCPaySDK {
+  umbrella header "DCPaySDK.h"
+
+  export *
+  module * { export * }
+}
