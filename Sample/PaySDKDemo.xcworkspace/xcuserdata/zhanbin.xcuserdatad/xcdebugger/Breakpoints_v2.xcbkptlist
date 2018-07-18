@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PaySDKDemo/AppDelegate.m"
-            timestampString = "552920934.225384"
+            timestampString = "552984777.562843"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "53"
@@ -25,29 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PaySDKDemo/AppDelegate.m"
-            timestampString = "552920934.22545"
+            filePath = "PaySDKDemo/ViewController.m"
+            timestampString = "553572315.6392781"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "-application:openURL:options:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PaySDKDemo/AppDelegate.m"
-            timestampString = "552920934.225497"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "-application:openURL:options:"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "-prePay:amount:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
