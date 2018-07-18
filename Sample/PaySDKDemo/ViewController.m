@@ -70,7 +70,7 @@ static const NSString *merchantId = @"89898477937650";
                             NSLog(@"\rorderInfo:\r%@",orderInfo);
                             
                             //应用注册scheme,在PaySDKDemo-Info.plist定义URL types
-                            NSString *appScheme = @"PaySDKDemo";
+                            NSString *appScheme = @"DCPaySDKDemo";
                             
                             //调用sdk开始支付
                             [[DCPaySDK defaultService] payOrder:orderInfo fromScheme:appScheme];
@@ -112,7 +112,7 @@ static const NSString *merchantId = @"89898477937650";
     NSLog(@"\rorderInfo:\r%@",orderInfo);
     
     //应用注册scheme,在PaySDKDemo-Info.plist定义URL types
-    NSString *appScheme = @"PaySDKDemo";
+    NSString *appScheme = @"DCPaySDKDemo";
     
     //调用sdk开始支付
     [[DCPaySDK defaultService] payOrder:orderInfo fromScheme:appScheme];
